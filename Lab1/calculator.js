@@ -3,11 +3,13 @@ let inputs
 let mainContainer
 
 function start() {
-    const button = document.querySelector('#calculateButton')
-    button.addEventListener("click", onClick)
+    const addButton = document.querySelector('#addButton')
+    addButton.addEventListener("click", onAddClick)
+    const removeButton = document.querySelector('#removeButton')
+    removeButton.addEventListener("click", onRemoveClick)
     inputs = document.querySelectorAll('input')
     inputs.forEach(input => {
-        input.addEventListener('input', onClick)
+        input.addEventListener('input', calculate)
     });
     mainContainer = document.querySelector('main')
 }
@@ -60,9 +62,28 @@ function max() {
     text.innerText = `Max: ${max}`
 }
 
-function onClick() {
+function calculate() {
     sum()
     average()
     min()
     max()
+}
+
+function onAddClick() {
+    const newInput = document.createElement('input')
+    newInput.type = 'number'
+    newInput.classList.add("container")
+    newInput.classList.add("input")
+    newInput.addEventListener('input', calculate)
+    mainContainer.appendChild(newInput)
+    inputs = document.querySelectorAll('input')
+}
+
+function onRemoveClick() {
+    for (let i = 0; i < inputs.length; i++) {
+        if(inputs[i].value === "") {
+            inputs[i].parentNode.removeChild(inputs[i])
+        }
+    }
+    inputs = document.querySelectorAll('input')
 }
