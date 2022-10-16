@@ -1,0 +1,30 @@
+.container {
+    display: flex;
+}
+
+.input {
+    margin-bottom: 0.4rem;
+}
+
+#slider {
+    width: 600px;
+    height: 400px;
+    margin: 100px auto 0 auto;
+    overflow: hidden;
+}
+#slider .slides {
+    display: flex;
+    animation-name: move-to-left;
+    animation-duration: 4s;
+    animation-delay: 1s;
+    animation-timing-function: ease-in-out;
+}
+
+@keyframes move-to-left {
+    0% {
+        transform: translateX(0);
+    }
+    100% {
+        transform: translateX(-2000px);
+    }
+}
