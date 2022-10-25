@@ -46,6 +46,7 @@ body {
     padding: 0;
     height: 100vh;
     display: flex;
+    flex-direction: column;
     justify-content: center;
     align-items: center;
     background: #067d7d;
@@ -151,4 +152,18 @@ body {
 
 #radio4:checked ~ .navigation-auto .auto-button4 {
     background: #023636;
+}
+
+.navigation-buttons {
+    margin-top: 15px;
+}
+
+.navigation-buttons button {
+    height: 30px;
+    min-width: 45px;
+    border: solid 2px #023636;
+    border-radius: 10px;
+    background: #023636;
+    opacity: 0.6;
+    color: antiquewhite;
 }
