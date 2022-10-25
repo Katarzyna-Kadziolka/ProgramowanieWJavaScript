@@ -1,16 +1,34 @@
-// document.addEventListener("DOMContentLoaded", start)
+document.addEventListener("DOMContentLoaded", start)
 
-// let mainContainer;
-// function start() {
-//     mainContainer = document.querySelector('main')
-//     const leftButton = document.querySelector('#leftButton')
-//     leftButton.addEventListener("click", onLeftButtonClick)
-//     const rightButton = document.querySelector('#rightButton')
-//     rightButton.addEventListener("click", onRightButtonClick)
-//     const stopButton = document.querySelector('#stopButton')
-//     stopButton.addEventListener("click", onStopButtonClick)
-//     showSlides();
-// }
+let navigationButtons;
+let stopButton;
+function start() {
+    navigationButtons = document.getElementsByClassName("navigation-buttons")
+
+    const backButton = document.querySelector('#back-button')
+    backButton.addEventListener("click", onBackButtonClick)
+    const nextButton = document.querySelector('#next-button')
+    nextButton.addEventListener("click", onNextButtonClick)
+    stopButton = document.querySelector('#stop-button')
+    stopButton.addEventListener("click", onStopButtonClick)
+
+    const radio1 = document.querySelector('#radio1')
+    radio1.addEventListener("change", function() {
+      onRadioChecked(1)
+    })
+    const radio2 = document.querySelector('#radio2')
+    radio2.addEventListener("change", function() {
+      onRadioChecked(2)
+    })
+    const radio3 = document.querySelector('#radio3')
+    radio3.addEventListener("change", function() {
+      onRadioChecked(3)
+    })
+    const radio4 = document.querySelector('#radio4')
+    radio4.addEventListener("change", function() {
+      onRadioChecked(4)
+    })
+}
 
 // let slideIndex = 0;
 
@@ -69,12 +87,58 @@
 // window.requestAnimationFrame()
 
 
-let counter = 1;
+let counter = 0;
 
-setInterval(function() {
-  document.getElementById('radio' + counter).checked = true
-  counter++
+function setImage() {
   if(counter > 4) {
     counter = 1
   }
-}, 5000)
+  document.getElementById('radio' + counter).checked = true
+}
+
+function replaySlaides() {
+    intervalRef = setInterval(function() {
+      counter++
+      setImage()
+    }, 3000)
+}
+
+let intervalRef = setInterval(function() {
+  counter++
+  setImage()
+}, 3000)
+
+function onBackButtonClick() {
+  if(counter > 1) {
+    counter --
+    setImage()
+    clearInterval(intervalRef)
+    replaySlaides()
+  }
+}
+
+function onNextButtonClick() {
+  counter++
+  setImage()
+  clearInterval(intervalRef)
+  replaySlaides()
+}
+
+function onStopButtonClick() {
+  if(stopButton.textContent == "Stop") {
+    clearInterval(intervalRef)
+    stopButton.textContent = "Play"
+  }
+  else {
+    replaySlaides()
+    stopButton.textContent = "Stop"
+  }
+}
+
+function onRadioChecked(value) {
+  console.log(value)
+  counter = +value
+  setImage()
+  clearInterval(intervalRef)
+  replaySlaides()
+}
