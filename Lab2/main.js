@@ -3,6 +3,8 @@ document.addEventListener("DOMContentLoaded", start)
 let navigationButtons;
 let stopButton;
 let slideList;
+let modal;
+const photos = ["Bella1.jpg", "Bella2.jpg", "Bella3.jpg", "Bella4.jpg"]
 function start() {
     navigationButtons = document.getElementsByClassName("navigation-buttons")
 
@@ -34,6 +36,15 @@ function start() {
     animationChangerButton.addEventListener("click", onAnimationChangerButtonClick)
 
     slideList = document.getElementsByClassName("slide")
+    for(item of slideList) {
+      item.addEventListener("click", onSlideClick)
+    }
+
+    modal = document.getElementsByClassName("modal")[0]
+    const modalCloseButton = modal.getElementsByClassName("close")[0]
+    modalCloseButton.addEventListener("click", onCloseButtonClick)
+
+    window.addEventListener("click", onWindowClick)
 }
 
 // let slideIndex = 0;
@@ -177,4 +188,39 @@ function changeFadeImage() {
     item.classList.remove("first-slide")
   }
   slideList[counter-1].classList.add("first-slide")
+}
+
+function onSlideClick() {
+  clearInterval(intervalRef)
+  modal.classList.remove("modal-unvisible")
+  modal.classList.add("modal-visible")
+  const modalImg = modal.getElementsByClassName("modal-img")[0]
+  const bigImg = document.createElement('img')
+  bigImg.src = photos[counter-1]
+  modalImg.appendChild(bigImg)
+}
+
+function removeChildrenFromModalImg() {
+  const modalImg = modal.getElementsByClassName("modal-img")[0]
+  let lastChild = modalImg.lastElementChild
+  while(lastChild) {
+    modalImg.removeChild(lastChild);
+    lastChild = modalImg.lastElementChild
+  }
+}
+
+function onCloseButtonClick() {
+  modal.classList.remove("modal-visible")
+  modal.classList.add("modal-unvisible")
+  removeChildrenFromModalImg()
+  replaySlaides()
+}
+
+function onWindowClick(event) {
+  if(event.target == modal) {
+    modal.classList.remove("modal-visible")
+    modal.classList.add("modal-unvisible")
+    removeChildrenFromModalImg()
+    replaySlaides()
+  }
 }
