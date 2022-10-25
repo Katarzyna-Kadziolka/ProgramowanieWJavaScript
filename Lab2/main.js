@@ -2,6 +2,7 @@ document.addEventListener("DOMContentLoaded", start)
 
 let navigationButtons;
 let stopButton;
+let slideList;
 function start() {
     navigationButtons = document.getElementsByClassName("navigation-buttons")
 
@@ -28,6 +29,11 @@ function start() {
     radio4.addEventListener("change", function() {
       onRadioChecked(4)
     })
+
+    const animationChangerButton = document.querySelector('#animation-changer-button')
+    animationChangerButton.addEventListener("click", onAnimationChangerButtonClick)
+
+    slideList = document.getElementsByClassName("slide")
 }
 
 // let slideIndex = 0;
@@ -89,10 +95,14 @@ function start() {
 
 let counter = 0;
 
+
 function setImage() {
   if(counter > 4) {
     counter = 1
   }
+  if(isFade) {
+    changeFadeImage()
+  } 
   document.getElementById('radio' + counter).checked = true
 }
 
@@ -136,9 +146,35 @@ function onStopButtonClick() {
 }
 
 function onRadioChecked(value) {
-  console.log(value)
   counter = +value
   setImage()
   clearInterval(intervalRef)
   replaySlaides()
+}
+
+let isFade = false
+function onAnimationChangerButtonClick() {
+  clearInterval(intervalRef)
+  if(isFade) {
+    for(let item of slideList) {
+      item.className = "slide"
+    }
+    slideList[0].classList.add("first")
+    isFade = false
+  }
+  else {
+    for(let item of slideList) {
+      item.className = "slide fade fade-slide"
+    }
+    slideList[counter-1].classList.add("first-slide")
+    isFade = true
+  }
+  replaySlaides()
+}
+
+function changeFadeImage() {
+  for(let item of slideList) {
+    item.classList.remove("first-slide")
+  }
+  slideList[counter-1].classList.add("first-slide")
 }
