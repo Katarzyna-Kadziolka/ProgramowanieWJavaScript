@@ -8,6 +8,13 @@ function start() {
 const KeyToSound = {
     'a': document.querySelector('#s1'),
     's': document.querySelector('#s2'),
+    'd': document.querySelector('#s3'),
+    'f': document.querySelector('#s4'),
+    'g': document.querySelector('#s5'),
+    'h': document.querySelector('#s6'),
+    'j': document.querySelector('#s7'),
+    'k': document.querySelector('#s8'),
+    'l': document.querySelector('#s9'),
 }
 function onKeyPress(event) {
     // const key = event.key

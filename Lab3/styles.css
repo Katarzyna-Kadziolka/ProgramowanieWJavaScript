@@ -1,8 +1,34 @@
-.container {
-    display: flex;
+span {
+    font-family: 'Calibri';
 }
 
-.input {
-    margin-bottom: 0.4rem;
+body {
+    margin: 0;
+    padding: 0;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.audio-container {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    column-gap: 0.8rem;
+    margin-bottom: 1.2rem;
+}
+
+.audio-container span {
+    font-size: 1.2rem;
+}
+
+.audios-container {
+    margin-top: 1.5rem;
+    margin-left: 2rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
 }
 
