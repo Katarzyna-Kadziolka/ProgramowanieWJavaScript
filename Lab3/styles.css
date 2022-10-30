@@ -1,0 +1,8 @@
+.container {
+    display: flex;
+}
+
+.input {
+    margin-bottom: 0.4rem;
+}
+
