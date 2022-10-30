@@ -6,23 +6,13 @@ function start() {
 }
 
 const KeyToSound = {
-    'a': 's1',
-    's': 's2',
+    'a': document.querySelector('#s1'),
+    's': document.querySelector('#s2'),
 }
-function onKeyPress(ev) {
+function onKeyPress(event) {
     // const key = event.key
     // logika mapowania key -> sound
-    const sound = KeyToSound[ev.key]
-    // switch (ev.key) {
-    //     case 'a':
-    //         sound = SOUND.clap
-    //         // clap
-    //         break;
-    //     case 's':
-    //         sound = SOUND.hihat
-    //         // hihat
-    //         break;
-    // }
+    const sound = KeyToSound[event.key]
     playSound(sound)
 }
 
@@ -30,8 +20,7 @@ function playSound(sound) {
     if (!sound) {
         return
     }
-    const audioTag = document.querySelector(`#${clap}`)
-    audioTag.currentTime = 0
-    audioTag.play()
+    sound.currentTime = 0
+    sound.play()
 }
 // Date.now()
