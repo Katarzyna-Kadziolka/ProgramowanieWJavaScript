@@ -1,9 +1,9 @@
-document.addEventListener("DOMContentLoaded", start)
+// document.addEventListener("DOMContentLoaded", start)
 document.addEventListener('keypress', onKeyPress)
 
-function start() {
+// function start() {
 
-}
+// }
 
 const KeyToSound = {
     'a': document.querySelector('#s1'),
