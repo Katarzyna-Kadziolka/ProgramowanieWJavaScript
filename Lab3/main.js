@@ -3,6 +3,9 @@ document.addEventListener('keypress', onKeyPress)
 
 let KeyToSound
 let TracksInfo
+let metronome
+let metronomeStartButton
+let metronomeStopButton
 const track1 = []
 const track2 = []
 const track3 = []
@@ -63,6 +66,14 @@ function start() {
 
     const playButton = document.querySelector("#playButton")
     playButton.addEventListener('click', onPlayButtonClick)
+
+    metronomeStartButton = document.querySelector("#metronomeStartButton")
+    metronomeStartButton.addEventListener('click', onMetronomeStartButtonClick)
+
+    metronomeStopButton = document.querySelector("#metronomeStopButton")
+    metronomeStopButton.addEventListener('click', onMetronomeStopButton)
+
+    metronome = document.querySelector("#metronome")
 }
 
 
@@ -134,7 +145,6 @@ function onPlayButtonClick() {
         for(const sound of track) {
             setTimeout(() => playSound(sound), time * 1000)
             time += sound.duration;
-            console.log(sound.duration);
         }
     } 
 }
@@ -148,4 +158,35 @@ function getCheckedTracks() {
         }
     }
     return tracks
+}
+
+let metronomeFunction;
+const metronomeSound = new Audio('./sounds/metronome.wav')
+function onMetronomeStartButtonClick() {
+    switchButtonToMetronomeStopButton()
+    metronome.disabled = true;
+    const rate = metronome.value
+    console.log(rate)
+    metronomeFunction = setInterval(metronomePlaySound, 60 / rate * 1000)
+}
+
+function metronomePlaySound() {
+    metronomeSound.currentTime = 0;
+    metronomeSound.play()
+}
+
+function onMetronomeStopButton() {
+    metronome.disabled = false;
+    clearInterval(metronomeFunction)
+    switchButtonToMetronomeStartButton()
+}
+
+function switchButtonToMetronomeStopButton() {
+    metronomeStartButton.classList.remove("visible")
+    metronomeStopButton.classList.add("visible")
+}
+
+function switchButtonToMetronomeStartButton() {
+    metronomeStartButton.classList.add("visible")
+    metronomeStopButton.classList.remove("visible")
 }

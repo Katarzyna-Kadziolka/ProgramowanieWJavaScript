@@ -87,10 +87,14 @@
                 <button id="playButton" >Play checked</button>
             </div>
         </div>
-        <!-- Metronome -->
-        <div>
-            <input type="range" min="40" max="200" step="10" oninput="this.nextElementSibling.value = this.value">
-            <output>120</output>
+        <div class="mentronome-container">
+            <span><b>Metronome</b></span>
+            <div class="metronome-range">
+                <input id="metronome" type="range" min="40" max="200" step="10" oninput="this.nextElementSibling.value = this.value">
+                <output>120</output>
+            </div>
+            <button id="metronomeStartButton" class="metronome-button visible">Start</button>
+            <button id="metronomeStopButton" class="metronome-button">Stop</button>
         </div>
         
     </main>
