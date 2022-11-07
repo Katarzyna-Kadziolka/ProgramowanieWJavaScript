@@ -54,30 +54,43 @@
                     <input type="checkbox" id="track1" name="track1" value="record1">
                     <label for="track1"><b>Track 1</b></label>
                 </div>
-                <button id="recordButton">Record</button>
+                <button id="record1" class="recordButton">Record</button>
+                <button disabled id="stop1" class="stopButton">Stop</button>
             </div>
             <div class="track-container">
                 <div>
                     <input type="checkbox" id="track2" name="track2" value="record2">
                     <label for="track1"><b>Track 2</b></label>
                 </div>
-                <button id="recordButton">Record</button>
+                <button id="record2" class="recordButton">Record</button>
+                <button disabled id="stop2" class="stopButton">Stop</button>
+
             </div>
             <div class="track-container">
                 <div>
                     <input type="checkbox" id="track3" name="track3" value="record3">
                     <label for="track1"><b>Track 3</b></label>
                 </div>
-                <button id="recordButton">Record</button>
+                <button id="record3" class="recordButton">Record</button>
+                <button disabled id="stop3" class="stopButton">Stop</button>
+
             </div>
             <div class="track-container">
                 <div>
                     <input type="checkbox" id="track4" name="track4" value="record4">
                     <label for="track1"><b>Track 4</b></label>
                 </div>
-                <button id="recordButton">Record</button>
+                <button id="record4" class="recordButton">Record</button>
+                <button disabled id="stop4" class="stopButton">Stop</button>
             </div>
-
+            <div class="track-container play-button">
+                <button id="playButton" >Play checked</button>
+            </div>
+        </div>
+        <!-- Metronome -->
+        <div>
+            <input type="range" min="40" max="200" step="10" oninput="this.nextElementSibling.value = this.value">
+            <output>120</output>
         </div>
         
     </main>

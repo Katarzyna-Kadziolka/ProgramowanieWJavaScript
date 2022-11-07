@@ -13,6 +13,12 @@ button {
     border-radius: 10px;
     font-size: 1.2rem;
 }
+button:disabled,
+button[disabled] {
+  border: 2px solid #999999;
+  background-color: #cccccc;
+  color: #666666;
+}
 
 .main-container {
     display: flex;
@@ -55,3 +61,8 @@ button {
     column-gap: 1rem;
     margin-bottom: 1.5rem;
 }
+
+.play-button {
+    justify-content: end;
+}
+
