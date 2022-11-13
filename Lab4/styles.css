@@ -1,0 +1,76 @@
+.main-container {
+    display: flex;
+    font-family: 'Calibri';
+}
+
+.add-note {
+    background: #cce6ff;
+    border: 3px solid #80bfff;
+    border-radius: 4px;
+    min-width: 12rem;
+    min-height: 12rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+}
+.add-button {
+    margin: 0;
+    padding: 0;
+    min-width: 4rem;
+    min-height: 4rem;
+    border: 2px solid #80bfff;
+    border-radius: 50%;
+    background: #e6f2ff;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-family: 'Calibri';
+    color: #0059b3;
+    opacity: 50%;
+    transition: 0.5s;
+    font-size: 3rem;
+}
+.add-button:hover {
+    opacity: 100%;
+}
+
+.note {
+    background: #cce6ff;
+    border: 3px solid #80bfff;
+    border-radius: 4px;
+    width: 12rem;
+    min-height: 12rem;
+    display: flex;
+    flex-direction: column;
+    padding: 1rem;
+    word-wrap: break-word;
+    margin-left: 2rem;
+}
+.note-header {
+    display: flex;
+    justify-content: space-between;
+}
+.title {
+    font-size: 1.5rem;
+}
+.pin {
+    opacity: 50%;
+}
+hr {
+    width:80%;
+    text-align:left;
+    margin-left:0
+}
+.date {
+    opacity: 80%;
+    font-size: 0.8rem;
+}
+.color-picker-container {
+    display: flex;
+    justify-content: flex-end;
+}
+.color-picker {
+    width: 1.5rem;
+    height: 1.5rem;
+}
