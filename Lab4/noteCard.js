@@ -24,6 +24,10 @@ template.innerHTML = `
     .pin {
         opacity: 50%;
     }
+    .pin:hover {
+        opacity: 100%;
+        cursor: pointer;
+    }
     hr {
         width:80%;
         text-align:left;
@@ -45,13 +49,13 @@ template.innerHTML = `
     </style>
     <div class="note">
         <div class="note-header">
-            <span class="title">Title</span>
-            <span class="pin">Pin</span> 
+            <span id="title" class="title">Title</span>
+            <span id="pin" class="pin">Pin</span> 
         </div>
-        <span class="date">13.11.2022</span>
+        <span id="date" class="date">13.11.2022</span>
         <hr>
 
-        <span>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Tempora libero repudiandae ullam rerum, in, sunt laboriosam sed quod officiis accusamus error blanditiis ea, consectetur amet quia assumenda eveniet nobis tenetur?</span>
+        <span id="contetnt">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Tempora libero repudiandae ullam rerum, in, sunt laboriosam sed quod officiis accusamus error blanditiis ea, consectetur amet quia assumenda eveniet nobis tenetur?</span>
         <div class="color-picker-container">
             <input type="color" class="color-picker"></input>
         </div>

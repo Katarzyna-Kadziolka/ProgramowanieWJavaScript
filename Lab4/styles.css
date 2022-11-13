@@ -33,5 +33,57 @@
 }
 .add-button:hover {
     opacity: 100%;
+    cursor: pointer;
 }
 
+.note {
+    background: #cce6ff;
+    border: 3px solid #80bfff;
+    border-radius: 4px;
+    width: 12rem;
+    min-height: 12rem;
+    display: flex;
+    flex-direction: column;
+    padding: 1rem;
+    word-wrap: break-word;
+    margin-left: 2rem;
+}
+.note-header {
+    display: flex;
+    justify-content: space-between;
+}
+.title {
+    font-size: 1.5rem;
+    width: 80%;
+    word-wrap: break-word;
+}
+.title:read-only {
+    border: none;
+}
+.pin {
+    opacity: 50%;
+}
+.pin:hover {
+    opacity: 100%;
+    cursor: pointer;
+}
+hr {
+    width:80%;
+    text-align:left;
+    margin-left:0
+}
+.date {
+    opacity: 80%;
+    font-size: 0.8rem;
+}
+.color-picker-container {
+    display: flex;
+    justify-content: flex-end;
+}
+.color-picker {
+    width: 1.5rem;
+    height: 1.5rem;
+}
+.content {
+    min-height: 60%;
+}
