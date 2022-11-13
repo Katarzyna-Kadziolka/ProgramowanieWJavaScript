@@ -12,7 +12,6 @@ template.innerHTML = `
         flex-direction: column;
         padding: 1rem;
         word-wrap: break-word;
-        margin-left: 2rem;
     }
     .note-header {
         display: flex;
@@ -20,6 +19,13 @@ template.innerHTML = `
     }
     .title {
         font-size: 1.5rem;
+        width: 80%;
+        word-wrap: break-word;
+    }
+    .title:read-only {
+        border: none;
+        background: #cce6ff;
+        color: #293d3d;
     }
     .pin {
         opacity: 50%;
@@ -45,17 +51,24 @@ template.innerHTML = `
         width: 1.5rem;
         height: 1.5rem;
     }
+    .content {
+        min-height: 60%;
+    }
+    .content:read-only {
+        border: none;
+        background: #cce6ff;
+        color: #293d3d;
+    }
     
     </style>
     <div class="note">
         <div class="note-header">
-            <span id="title" class="title">Title</span>
+            <input id="title" class="title"placeholder="Title" readonly></input>
             <span id="pin" class="pin">Pin</span> 
         </div>
         <span id="date" class="date">13.11.2022</span>
         <hr>
-
-        <span id="contetnt">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Tempora libero repudiandae ullam rerum, in, sunt laboriosam sed quod officiis accusamus error blanditiis ea, consectetur amet quia assumenda eveniet nobis tenetur?</span>
+        <textarea id="contetnt" class="content" readonly></textarea>
         <div class="color-picker-container">
             <input type="color" class="color-picker"></input>
         </div>
