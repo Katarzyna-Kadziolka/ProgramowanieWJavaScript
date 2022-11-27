@@ -17,4 +17,13 @@ const GetSum = async(a, b, ...args) => {
     console.log(sum)
 }
 
-GetSum(10, 20, 1, 55, 68, 79)
+const getPerformanceTime = async () => {
+    const t0 = performance.now()
+    await GetSum(15, 22, 40, 3, 8, 21, 5, 13, 6, 9, 15, 22, 40, 3, 8, 21, 5, 13, 6, 9, 15, 22, 40, 3, 8, 21, 5, 13, 6, 9, 15, 22, 40, 3, 8, 21, 5, 13, 6, 9, 
+        15, 22, 40, 3, 8, 21, 5, 13, 6, 9, 15, 22, 40, 3, 8, 21, 5, 13, 6, 9, 15, 22, 40, 3, 8, 21, 5, 13, 6, 9, 15, 22, 40, 3, 8, 21, 5, 13, 6, 9, 
+        15, 22, 40, 3, 8, 21, 5, 13, 6, 9, 15, 22, 40, 3, 8, 21, 5, 13, 6, 9, )
+    const t1 = performance.now()
+    console.log(`Time: ${t1 - t0}`)
+}
+
+getPerformanceTime()
