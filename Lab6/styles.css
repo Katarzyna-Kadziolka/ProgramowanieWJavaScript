@@ -15,3 +15,13 @@
     column-gap: 1rem;
     height: 10vh;
 }
+.ranges-form {
+    color: antiquewhite;
+    font-family: 'Calibri';
+    display: flex;
+    column-gap: 3rem;
+}
+.ranges-form-container {
+    display: flex;
+    column-gap: 1rem;
+}

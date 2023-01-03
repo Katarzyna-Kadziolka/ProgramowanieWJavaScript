@@ -13,6 +13,18 @@
     <div class="buttons-container">
         <button id="startButton">Start</button>
         <button id="resetButton">Reset</button>
+        <form class="ranges-form">
+            <div class="ranges-form-container">
+               <label for="NumberOfCirclesRange">Number of circles:</label>
+                <input type="range" id="NumberOfCirclesRange" min="1" max="50" oninput="this.nextElementSibling.value = this.value">
+                <output>26</output>
+            </div>
+            <div class="ranges-form-container">
+                <label for="RangeOfLine">Range of line:</label>
+                <input type="range" id="RangeOfLine" min="10" max="1000" step="10" oninput="this.nextElementSibling.value = this.value">
+                <output>510</output>
+            </div>
+        </form>
     </div>
 </body>
 </html>

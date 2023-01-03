@@ -8,12 +8,16 @@ let circles = new Array()
 const startAngle = 0 
 const endAngle = Math.PI * 2 
 let doAnimation = true
+let numberOfCricles
+let lineRange
 
 function start() {
     const startButton = document.querySelector('#startButton')
     startButton.addEventListener("click", onStartClick)
     const resetButton = document.querySelector('#resetButton')
     resetButton.addEventListener("click", onResetClick)
+    numberOfCricles = document.querySelector('#NumberOfCirclesRange')
+    lineRange = document.querySelector('#RangeOfLine')
 }
 
 const onResetClick = () => {
@@ -30,7 +34,7 @@ const onStartClick = () => {
     }
     ctx = canvas.getContext('2d')
 
-    for (var i = 0; i < 10; i++) {
+    for (var i = 0; i < numberOfCricles.value; i++) {
         const radius = Math.random() * 30 + 10
         let x = Math.random() * canvas.width
         let y = Math.random() * canvas.height
@@ -92,7 +96,7 @@ const animate = () => {
         drawCircle(circles[i]);
         updatePosition(circles[i]);
         for (var j = 0; j < circles.length; j++) {
-            if (i !== j && distance(circles[i], circles[j]) < 150) {
+            if (i !== j && distance(circles[i], circles[j]) < lineRange.value) {
               drawLine(circles[i], circles[j]);
             }
         }
