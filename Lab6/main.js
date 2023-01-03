@@ -4,18 +4,26 @@ let canvas
 let ctx
 const canvaWidth = 1200
 const canvaHeigh = 500
-const circles = new Array();
+let circles = new Array()
 const startAngle = 0 
 const endAngle = Math.PI * 2 
+let doAnimation = true
 
 function start() {
     const startButton = document.querySelector('#startButton')
     startButton.addEventListener("click", onStartClick)
     const resetButton = document.querySelector('#resetButton')
-    resetButton.addEventListener("click", onStartClick)
+    resetButton.addEventListener("click", onResetClick)
+}
+
+const onResetClick = () => {
+    doAnimation = false
+    circles = new Array()
+    ctx.clearRect(0, 0, canvas.width, canvas.height)
 }
 
 const onStartClick = () => {
+    doAnimation = true
     canvas = document.getElementById('mainCanvas')
     if (!canvas.getContext) {
         throw new Error('Brak f. canvas.getContext')
@@ -88,6 +96,8 @@ const animate = () => {
               drawLine(circles[i], circles[j]);
             }
         }
-      }
-    requestAnimationFrame(animate);
+    }
+    if (doAnimation) {
+        requestAnimationFrame(animate);
+    }
 }
