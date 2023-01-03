@@ -11,7 +11,8 @@ const endAngle = Math.PI * 2
 function start() {
     const startButton = document.querySelector('#startButton')
     startButton.addEventListener("click", onStartClick)
-
+    const resetButton = document.querySelector('#resetButton')
+    resetButton.addEventListener("click", onStartClick)
 }
 
 const onStartClick = () => {
@@ -32,8 +33,8 @@ const onStartClick = () => {
             y = Math.random() * canvas.height
         }
         
-        let dx = Math.random() * 10
-        let dy = Math.random() * 10
+        let dx = Math.random() * 5
+        let dy = Math.random() * 5
         circles.push({x: x, y: y, radius: radius, dx: dx, dy: dy})
     }
 
@@ -50,6 +51,20 @@ const drawCircle = (circle) => {
     ctx.fill()
     ctx.save()
 }
+
+const drawLine = (circle1, circle2) => {
+    ctx.beginPath();
+    ctx.moveTo(circle1.x, circle1.y)
+    ctx.lineTo(circle2.x, circle2.y)
+    ctx.strokeStyle = "#FFA500"
+    ctx.stroke()
+}
+
+const distance = (circle1, circle2) => {
+    const distanceDifferenceX = circle1.x - circle2.x;
+    const distanceDifferenceY = circle1.y - circle2.y;
+    return Math.sqrt(distanceDifferenceX * distanceDifferenceX + distanceDifferenceY * distanceDifferenceY);
+  }
 
 const updatePosition = (circle) => {
     circle.x += circle.dx
@@ -68,6 +83,11 @@ const animate = () => {
     for (var i = 0; i < circles.length; i++) {
         drawCircle(circles[i]);
         updatePosition(circles[i]);
+        for (var j = 0; j < circles.length; j++) {
+            if (i !== j && distance(circles[i], circles[j]) < 150) {
+              drawLine(circles[i], circles[j]);
+            }
+        }
       }
     requestAnimationFrame(animate);
 }
