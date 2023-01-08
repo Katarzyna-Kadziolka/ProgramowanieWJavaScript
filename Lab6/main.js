@@ -11,6 +11,7 @@ let doAnimation = true
 let numberOfCricles
 let lineRange
 
+
 function start() {
     const startButton = document.querySelector('#startButton')
     startButton.addEventListener("click", onStartClick)
@@ -33,6 +34,8 @@ const onStartClick = () => {
         throw new Error('Brak f. canvas.getContext')
     }
     ctx = canvas.getContext('2d')
+
+    
 
     for (var i = 0; i < numberOfCricles.value; i++) {
         const radius = Math.random() * 30 + 10
