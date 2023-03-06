@@ -93,7 +93,6 @@ function playSound(sound) {
     }
     sound.currentTime = 0
     sound.play()
-    console.log("Playing 🎧:"  + JSON.stringify(sound.src))
 }
 
 function someTrackRecording () {
@@ -104,7 +103,6 @@ function record(sound) {
     const trackInfo = TracksInfo.find(a => a.recording == true)
     const track = trackInfo.track
     track.push(sound)
-    console.log(track)
 }
 
 function onRecordButtonClick(event) {
